@@ -25,21 +25,4 @@ jobs:
           # CircleCI に登録した秘密鍵を呼び出す
           - add_ssh_keys:
           # CircleCI に登録した環境変数を使って SSH
-          - run: ssh ec2-user@35.75.157.227 'cd . && git pull'
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-    version: 2.1
-    # build_and_deploy ジョブ: 一番最初に呼ばれるジョブ
-    build_and_deploy:
-        # build ジョブと deploy ジョブを登録する
-        jobs:
-            - build
-            - deploy:
-                requires:
-                    # 依存性あるから deploy ジョブより先に build ジョブを実行してね、という命令
-                    - build
-                # master ブランチに push された場合のみ deploy ジョブを実行する
-                filters:
-                    branches:
-                        only: circleci-project-setup
+          - run: ssh ${USER_NAME}@${HOST_NAME} 'sudo yum install mysql'
