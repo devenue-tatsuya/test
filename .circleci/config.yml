@@ -16,11 +16,11 @@ jobs:
             - checkout
             - add_ssh_keys:
             - run:
-              name: ssh
-              command: |
-                ssh ${USER_NAME}@${HOST_NAME} 'cd . && touch aaa'
-                touch bbb.txt
-                sudo yum install mysql
+                name: ssh
+                command: |
+                  ssh ${USER_NAME}@${HOST_NAME} 'cd . && touch aaa'
+                  touch bbb.txt
+                  sudo yum install mysql
 
 workflows:
     version: 2
