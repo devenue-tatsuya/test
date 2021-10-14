@@ -15,7 +15,7 @@ jobs:
         steps:
             - checkout
             - add_ssh_keys:
-            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd fuga/ && touch hoge'
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd . && touch aaa'
 
 workflows:
     version: 2
