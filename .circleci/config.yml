@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    machine:
+    docker:
       - image: circleci/classic:edge
     steps:
       - run: echo "hello world"
