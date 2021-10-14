@@ -26,7 +26,7 @@ workflows:
             - build
             - deploy:
                 requires:
-                    # 依存性あるから deploy ジョブより先に build ジョブを実行してね、という
+                    # 依存性あるから deploy ジョブより先に build ジョブを実行してね、とい
                     - build
                 # master ブランチに push された場合のみ deploy ジョブを実行する
                 filters:
