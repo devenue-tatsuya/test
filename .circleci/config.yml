@@ -1,7 +1,16 @@
 version: 2
+
 jobs:
-  build:
-    docker:
-      - image: circleci/classic:edge
-    steps:
-      - run: echo "hello world"
+    build:
+        docker:
+            - image: alpine
+        steps:
+            - checkout
+            - run:
+                name: Echo Test
+                command: echo "CircleCI Test"
+    deploy:
+        machine:
+            image: circleci/classic:edge
+        steps:
+            - checkout
