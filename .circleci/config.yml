@@ -23,7 +23,7 @@ jobs:
                 command: ssh ${USER_NAME}@${HOST_NAME} 'git clone https://github.com/nodenv/nodenv.git ~/.nodenv'
             - run:
                 name: nodenv-install2
-                command: ssh ${USER_NAME}@${HOST_NAME} 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc && echo 'eval "$(nodenv init -)"' >> ~/.bashrc && source ~/.bashrc'
+                command: ssh ${USER_NAME}@${HOST_NAME} 'echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc && echo 'eval "$(nodenv init -)"' >> ~/.bashrc && source ~/.bashrc'
             - run:
                 name: nodenv-install3
                 command: ssh ${USER_NAME}@${HOST_NAME} 'git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build'
