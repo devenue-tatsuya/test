@@ -17,9 +17,7 @@ jobs:
             - add_ssh_keys:
             - run:
                 name: ssh
-                command: |
-                  ssh ${USER_NAME}@${HOST_NAME}
-                  && touch bbb.txt
+                command: ssh ${USER_NAME}@${HOST_NAME} 'touch bbb.txt'
 
 workflows:
     version: 2
