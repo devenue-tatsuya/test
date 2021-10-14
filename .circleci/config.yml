@@ -34,7 +34,7 @@ workflows:
     version: 2
     # build_and_deploy ジョブ: 一番最初に呼ばれるジョブ
     build_and_deploy:
-        # build ジョブと deploy ジョブを登録する
+        # build ジョブと deploy ジョブを登録す
         jobs:
             - build
             - deploy:
