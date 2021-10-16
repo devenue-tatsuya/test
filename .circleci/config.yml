@@ -18,14 +18,14 @@ jobs:
             - run:
                 name: ssh
                 command: |
-                    ssh ${USER_NAME}@${HOST_NAME} 'touch 2.txt'
+                    ssh ${USER_NAME}@${HOST_NAME} 'touch 3.txt'
             - checkout
             - add_ssh_keys:
             - run:
                 name: ssh2
                 command: |
                     # ssh ${USER_NAME}@${HOST_NAME} 'git clone https://github.com/nodenv/nodenv.git /home/ec2-user/.nodenv'
-                    echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >>  ~/.bashrc
+                    ssh ${USER_NAME}@${HOST_NAME} 'echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >>  ~/.bashrc'
                     # echo 'eval "$(nodenv init -)"' >> /home/ec2-user/.bashrc
                     # source /home/ec2-user/.bashrc
                     # git clone https://github.com/nodenv/node-build.git /home/ec2-user/.nodenv/plugins/node-build
