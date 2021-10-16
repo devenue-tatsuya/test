@@ -11,4 +11,4 @@ jobs:
     steps:
       - run:
           name: now
-          command: ssh ${USER_NAME}@${HOST_NAME} 'touch b.txt'
+          command: touch b.txt
