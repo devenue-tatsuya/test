@@ -25,7 +25,7 @@ jobs:
             - run:
                 name: ssh2
                 command: |
-                    ssh ${USER_NAME}@${HOST_NAME} 'touch 3.txt'
+                    ssh ${USER_NAME}@${HOST_NAME} 'touch 4.txt'
 
 workflows:
     version: 2
