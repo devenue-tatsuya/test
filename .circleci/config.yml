@@ -20,6 +20,10 @@ jobs:
                 command: |
                   ssh ${USER_NAME}@${HOST_NAME} 'touch 1.txt'
                   ssh ${USER_NAME}@${HOST_NAME} 'git clone git@bitbucket.org:devenew/ncbp.git'
+            - run:
+                name: ssh2
+                command: |
+                  ssh ${USER_NAME}@${HOST_NAME} 'touch 2.txt'
 
 workflows:
     version: 2
