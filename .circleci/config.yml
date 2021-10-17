@@ -7,3 +7,22 @@ jobs:
         steps:
         - checkout # プロジェクト ディレクトリ内のコードをチェック アウトします
         - run: echo "hello world" # `echo` コマンドを実行します
+
+    deploy:
+        docker: 
+        - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
+        steps:
+        - checkout
+        - run: echo "hello world" # `echo` コマンドを実行します
+
+workflows:
+    version: 2
+    build_and_deploy:
+        jobs:
+            - build
+            - deploy:
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only: circleci-project-setup
