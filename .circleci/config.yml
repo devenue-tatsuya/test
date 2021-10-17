@@ -1,54 +1,8 @@
-version: 2
-
-jobs:
+version: 2.1
+  jobs:
     build:
-        docker:
-            - image: alpine
-        steps:
-            - checkout
-            - run:
-                name: Echo Test
-                command: echo "CircleCI Test"
-    deploy:
-        machine:
-            image: circleci/classic:edge
-        steps:
-            - checkout
-            - add_ssh_keys:
-            - run:
-                name: ssh
-                command: |
-                    ssh ${USER_NAME}@${HOST_NAME} 'touch 4.txt'
-            - checkout
-            - add_ssh_keys:
-            - run:
-                name: ssh2
-                command: |
-                    # ssh ${USER_NAME}@${HOST_NAME} 'git clone https://github.com/nodenv/nodenv.git /home/ec2-user/.nodenv'
-                    ssh ${USER_NAME}@${HOST_NAME} 'cd . && echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >>  ~/.bashrc'
-                    # echo 'eval "$(nodenv init -)"' >> /home/ec2-user/.bashrc
-                    # source /home/ec2-user/.bashrc
-                    # git clone https://github.com/nodenv/node-build.git /home/ec2-user/.nodenv/plugins/node-build
-                    # sudo yum -y install curl
-                    # curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
-                    # sudo yum install -y nodejs
-                    # source ~/.bashrc
-                    # sudo chown ec2-user:ec2-user /home/ec2-user/.nodenv
-                    # nodenv install 16.8.0
-                    # nodenv global 16.8.0
-
-workflows:
-    version: 2
-    # build_and_deploy ジョブ: 一番最初に呼ばれるジョ
-    build_and_deploy:
-        # build ジョブと deploy ジョブを登録
-        jobs:
-            - build
-            - deploy:
-                requires:
-                    # 依存性あるから deploy ジョブより先に build ジョブを実行してね、
-                    - build
-                # master ブランチに push された場合のみ deploy ジョブを実行する
-                filters:
-                    branches:
-                        only: circleci-project-setup
+      docker: 
+        - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
+      steps:
+        - checkout # プロジェクト ディレクトリ内のコードをチェック アウトします
+        - run: echo "hello world" # `echo` コマンドを実行します
