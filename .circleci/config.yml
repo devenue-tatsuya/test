@@ -13,10 +13,7 @@ jobs:
         - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
         steps:
         - checkout
-        - run:
-            name: a
-            command: |
-                ssh $USER_NAME@$HOST_NAME 'touch b.txt'
+        - run: ssh $USER_NAME@$HOST_NAME 'touch b.txt'
 
 workflows:
     version: 2
