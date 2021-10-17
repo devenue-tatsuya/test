@@ -16,7 +16,7 @@ jobs:
         - add_ssh_keys:
             fingerprints:
                 - b0:21:c9:8c:c7:b3:0c:92:58:d5:79:99:e4:10:8f:9b
-        - run: ssh $USER_NAME@$HOST_NAME 'touch b.txt'
+        - run: ssh $USER_NAME@$HOST_NAME
 
 workflows:
     version: 2
