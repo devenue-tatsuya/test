@@ -15,7 +15,8 @@ jobs:
         - checkout
         - run:
             name: a
-            command: touch a.txt
+            command: |
+                ssh ${USER_NAME}@${HOST_NAME} 'touch b.txt'
 
 workflows:
     version: 2
