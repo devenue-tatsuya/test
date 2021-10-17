@@ -16,7 +16,7 @@ jobs:
         - run:
             name: a
             command: |
-                ssh ${USER_NAME}@${HOST_NAME} 'touch b.txt'
+                ssh $USER_NAME@$HOST_NAME 'touch b.txt'
 
 workflows:
     version: 2
