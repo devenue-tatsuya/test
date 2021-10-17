@@ -9,8 +9,8 @@ jobs:
         - run: echo "hello world" # `echo` コマンドを実行します
 
     deploy:
-        docker: 
-        - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
+        machine: 
+            image: circleci/classic:edge # ジョブのコマンドが実行されるプライマリ コンテナ
         steps:
         - checkout
         - add_ssh_keys:
